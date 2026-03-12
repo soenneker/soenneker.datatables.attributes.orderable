@@ -15,7 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.DataTables.Attributes.Orderable.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.DataTables.Attributes.Orderable\Soenneker.DataTables.Attributes.Orderable.csproj" />
     </ItemGroup>
 
     <ItemGroup>
