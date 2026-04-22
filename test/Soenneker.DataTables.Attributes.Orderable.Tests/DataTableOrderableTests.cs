@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.DataTables.Attributes.Orderable.Tests;
 
 public sealed class DataTableOrderableTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
