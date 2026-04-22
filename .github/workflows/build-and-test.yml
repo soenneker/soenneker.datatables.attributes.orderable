@@ -38,7 +38,7 @@ jobs:
         run: dotnet build test/Soenneker.DataTables.Attributes.Orderable.Tests/Soenneker.DataTables.Attributes.Orderable.Tests.csproj --configuration Release --no-restore --verbosity minimal
 
       - name: Test
-        run: dotnet test test/Soenneker.DataTables.Attributes.Orderable.Tests/Soenneker.DataTables.Attributes.Orderable.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
+        run: dotnet test --project test/Soenneker.DataTables.Attributes.Orderable.Tests/Soenneker.DataTables.Attributes.Orderable.Tests.csproj --configuration Release --no-build --no-restore --verbosity minimal
 
       - name: Pack
         run: dotnet pack src/Soenneker.DataTables.Attributes.Orderable/Soenneker.DataTables.Attributes.Orderable.csproj --configuration Release --no-build --no-restore --output . --verbosity minimal
