@@ -3,11 +3,30 @@
 [![](https://img.shields.io/nuget/dt/soenneker.datatables.attributes.orderable.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.datatables.attributes.orderable/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.datatables.attributes.orderable/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.datatables.attributes.orderable/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.DataTables.Attributes.Orderable
-### A C# attribute for DataTables.js orderable
+# Soenneker.DataTables.Attributes.Orderable
 
-## Installation
+Indicates that a property should be used for search operations in DataTables.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.DataTables.Attributes.Orderable
 ```
+
+## Quick start
+
+```csharp
+using Soenneker.DataTables.Attributes.Orderable;
+
+public sealed class Request
+{
+    [DataTableOrderable]
+    public string? Value { get; init; }
+}
+```
+
+Indicates that a property should be used for search operations in DataTables.
+
+## What you get
+
+- `DataTableOrderableAttribute` — Indicates that a property should be used for search operations in DataTables.
