@@ -5,28 +5,38 @@
 
 # Soenneker.DataTables.Attributes.Orderable
 
-Indicates that a property should be used for search operations in DataTables.
+`DataTableOrderableAttribute` marks model properties that a server-side DataTables query layer may use for sorting.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.DataTables.Attributes.Orderable
 ```
 
-## Quick start
+## Usage
 
 ```csharp
 using Soenneker.DataTables.Attributes.Orderable;
 
-public sealed class Request
+public sealed class CustomerRow
 {
     [DataTableOrderable]
-    public string? Value { get; init; }
+    public required string Name { get; init; }
+
+    [DataTableOrderable]
+    public DateTimeOffset CreatedAt { get; init; }
+
+    public string? InternalNote { get; init; }
 }
 ```
 
-Indicates that a property should be used for search operations in DataTables.
+A request-processing layer can inspect the requested column, find its corresponding property, and allow ordering only when that property has `DataTableOrderableAttribute`:
 
-## What you get
+```csharp
+using System.Reflection;
 
-- `DataTableOrderableAttribute` — Indicates that a property should be used for search operations in DataTables.
+PropertyInfo property = typeof(CustomerRow).GetProperty(nameof(CustomerRow.CreatedAt))!;
+bool mayOrder = property.IsDefined(typeof(DataTableOrderableAttribute));
+```
+
+This package supplies the marker attribute only. It does not parse DataTables requests or apply `OrderBy`. Treat requested column names as untrusted input and map them to known properties instead of inserting them into a query string.
